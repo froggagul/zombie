@@ -83,7 +83,7 @@ export default {
 		!production && localdev({
 		  dirs: ['public'],
 		  host: 'localhost',
-		  port: 80,
+		  port: process.env.PORT || 80,
 		  proxy: [{
 			from: '/predict',
 			to: 'https://devkor-sdk.herokuapp.com/predict',

@@ -5,7 +5,7 @@ import Axios from 'axios';
 let ranks = [];
 onMount(async() => {
     const result = await Axios.get('/load_rank');
-    ranks = result.data;
+    ranks = result.data.reverse();
 });
 </script>
 

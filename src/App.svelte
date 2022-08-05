@@ -16,7 +16,7 @@
 		name: '이름',
 		age: '나이',
 		sex: '성별',
-		rurality: '시작 지역',
+		rurality: '시골',
 		household: '동료',
 		water: '물',
 		food: '음식',
@@ -45,11 +45,11 @@
 		userState = {
 			name: '',
 			age: 0,
-			sex: 0,
+			sex: '여',
 			rurality: 0,
 			household: 0,
-			water: 10,
-			food: 10,
+			water: 0,
+			food: 0,
 			medication: 0,
 			tools: 0,
 			firstaid: 0,
@@ -69,6 +69,8 @@
 		const changeString = `${itemName}이(가) ${value}${typeName}`;
 		if (value > 0) {
 			changeStrings.push(changeString);
+		} else {
+			changeStrings.push('아무 일도 일어나지 않았습니다.');
 		}
 	}
 	const changeState = (item: keyof typeof userState, type: 'add' | 'set' | 'sub', value: number | boolean) => {

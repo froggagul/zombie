@@ -24,7 +24,6 @@ const doneWrite = () => {
 
 $: {
     initializeStory();
-
     if (order < stories.length) {
         story = stories[order];
         selectItems = story.select.map((item) => {
@@ -47,7 +46,9 @@ $: {
 
 <div class="storyWrapper" on:click={doneWrite}>
     <div class="img">
-        <Image src = {story.image}/>
+        {#if story.image}
+            <Image src = {story.image}/>
+        {/if}
     </div>
     {#if !disabled}
         <Typewriter interval={45}>
@@ -81,6 +82,7 @@ $: {
 .img {
     position: relative;
     margin: auto 0px;
+    min-height: 24px;
 }
 .button {
     /* height: 32px; */

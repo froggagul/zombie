@@ -6,8 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
-// import localdev from 'rollup-plugin-dev';
-import dev from '#plugin'
+import localdev from 'rollup-plugin-dev';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -81,7 +80,10 @@ export default {
 		// in dev mode, use a proxy service to avoid
 		// CORS errors with local lambda invocations
 		// https://github.com/nsimmons/koa-better-http-proxy#proxyreqpathresolver-supports-promises
-		!production && dev({
+		!production && localdev({
+		  dirs: ['public'],
+		  host: 'localhost',
+		  port: 5000,
 		  proxy: [{
 			from: '/predict',
 			to: 'https://devkor-sdk.herokuapp.com/predict',

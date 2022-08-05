@@ -8,7 +8,7 @@ export let userState;
 export let increaseOrder;
 let score = 0;
 const addToLeaderBoard = async () => {
-    if (score !== 0) {
+    if (score > 0) {
         const res = await Axios.post('/save_score', {
             name: userState.name || '',
             score: score,

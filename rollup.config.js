@@ -82,7 +82,7 @@ export default {
 		// https://github.com/nsimmons/koa-better-http-proxy#proxyreqpathresolver-supports-promises
 		!production && localdev({
 		  dirs: ['public'],
-		  host: 'localhost',
+		  host: '0.0.0.0',
 		  port: process.env.PORT || 80,
 		  proxy: [{
 			from: '/predict',
